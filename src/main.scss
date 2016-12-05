@@ -1,0 +1,738 @@
+article, aside, details,
+figcaption, figure,
+footer, header, hgroup,
+main, nav, section,
+summary { display: block; }
+audio, canvas, video { display: inline-block; }
+audio:not([controls]) { display: none; height: 0; }
+[hidden], template { display: none; }
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body { margin: 0; }
+a { background: transparent; }
+a:focus { outline: thin dotted; }
+a:active, a:hover { outline: 0; }
+h1 { font-size: 2em; margin: 0.67em 0; }
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+dfn { font-style: italic; }
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+mark { background: #ff0; color: #000; }
+code, kbd, pre,
+samp { font-family: monospace, serif; font-size: 1em; }
+pre { white-space: pre-wrap; }
+q { quotes: "\201C" "\201D" "\2018" "\2019"; }
+small { font-size: 80%; }
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+img { border: 0; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+legend { border: 0; padding: 0; }
+button, input, select,
+textarea { font-family: inherit; font-size: 100%; margin: 0; }
+button, input { line-height: normal; }
+button, select { text-transform: none; }
+button, html input[type="button"],
+input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button[disabled], html input[disabled] { cursor: default; }
+input[type="checkbox"],
+input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+button::-moz-focus-inner,
+input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+html {
+    height: 100%;
+    max-height: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    height: 100%;
+    max-height: 100%;
+    font-family: 'Noto Serif', serif;
+    font-size: 2.0rem;
+    line-height: 1.6em;
+    color: #3A4145;
+}
+
+::-moz-selection {
+    color: #222;
+    background: #D6EDFF;
+    text-shadow: none;
+}
+
+::selection {
+    color: #222;
+    background: #D6EDFF;
+    text-shadow: none;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+    line-height: 1;
+    margin-top: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-size: 5rem;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    text-indent: -3px;
+}
+
+h2 {
+    font-size: 3rem;
+    line-height: 1.2em;
+    letter-spacing: -1px;
+    text-indent: -2px;
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-size: 2.5rem;
+}
+
+h6 {
+    font-size: 2rem;
+}
+
+a {
+    color: #4a4a4a;
+    transition: color ease 0.3s;
+}
+
+a:hover {
+    color:#FF5933;
+}
+
+h1 a, h2 a, h3 a,
+h4 a, h5 a, h6 a {
+    color:#59361F;
+}
+
+
+p, ul, ol, dl {
+    margin: 1.6em 0;
+}
+
+ol ol, ul ul,
+ul ol, ol ul {
+    margin: 0.4em 0;
+}
+
+dl dt {
+    float: left;
+    width: 180px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    margin-bottom: 1em
+}
+
+dl dd {
+    margin-left: 200px;
+    margin-bottom: 1em
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #efefef;
+    margin: 3.2em 0;
+    padding: 0;
+}
+
+blockquote {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0 1.6em -2.2em;
+    padding: 0 0 0 1.6em;
+    border-left: #4a4a4a 0.4em solid;
+}
+
+blockquote p {
+    margin: 0.8em 0;
+    font-style: italic;
+}
+
+blockquote small {
+    display: inline-block;
+    margin: 0.8em 0 0.8em 1.5em;
+    font-size:0.9em;
+    color: #ccc;
+}
+
+blockquote small:before { content: '\2014 \00A0'; }
+
+blockquote cite {
+    font-weight:bold;
+}
+
+blockquote cite a { font-weight: normal; }
+
+mark {
+    background-color: #ffc336;
+}
+
+code, tt {
+    padding: 1px 3px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.85em;
+    white-space: pre-wrap;
+    border: 1px solid #E3EDF3;
+    background: #F7FAFB;
+    border-radius: 2px;
+}
+
+pre {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 1.6em 0;
+    border: 1px solid #E3EDF3;
+    width: 100%;
+    padding: 10px;
+    font-family: Inconsolata, monospace, sans-serif;
+    font-size: 0.9em;
+    white-space: pre;
+    overflow: auto;
+    background: #F7FAFB;
+    border-radius: 3px;
+}
+
+pre code, tt {
+    font-size: inherit;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+kbd {
+    display: inline-block;
+    margin-bottom: 0.4em;
+    padding: 1px 8px;
+    border: #ccc 1px solid;
+    color: #666;
+    text-shadow: #fff 0 1px 0;
+    font-size: 0.9em;
+    font-weight: bold;
+    background: #f4f4f4;
+    border-radius: 4px;
+    box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 1px 0 0 #fff inset;
+}
+
+/* ==========================================================================
+3. Utilities - These things get used a lot
+========================================================================== */
+
+/* Clears shit */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+/* Hides shit */
+.hidden {
+    text-indent: -9999px;
+    visibility: hidden;
+    display: none;
+}
+
+.title-wrap a, .title-wrap a:hover {
+    line-height:100px;
+    text-decoration:none;
+}
+
+.navigation {
+    margin: 0 0 50px;
+    text-align: center;
+    background: #A3CC52;
+    border-top: 1px solid #BEDA8C;
+    height: 40px;
+}
+
+.navigation a {
+    color: #fff;
+    display: inline-block;
+    height: 40px;
+    line-height: 35px;
+    text-decoration: none;
+    position: relative;
+    transition:all 0.3s ease;
+}
+
+.navigation a.rest:before, .navigation a.highlighted:before,
+.navigation a:active:before {
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#e6e673;
+    height:4px;
+    display:block;
+    transform:scale(1, 0);
+    content:'';
+    transition:all 0.3s ease;
+}
+
+.navigation a:active:before {
+    background:#ff5933;
+}
+
+.navigation a:hover:before, .navigation a.highlighted:before  {
+    transform:scale(1, 1);
+}
+
+.navigation a.rest:hover:before {
+    -webkit-animation:border 0.3s ease;
+}
+.navigation a.rest:hover  {
+    -webkit-animation:bounce 0.3s ease;
+}
+
+@-webkit-keyframes bounce {
+    0% {
+        transform:translateY(0);
+    }
+    20% {
+        transform:translateY(-3px);
+    }
+    50% {
+        transform:translateY(-5px);
+    }
+    100% {
+        transform:translateY(0);
+    }
+}
+@-webkit-keyframes border {
+    0% {
+        transform:translateY(0) scale(0.7, 0);
+    }
+    20% {
+        transform:translateY(3px) scale(0.9, 1);
+    }
+    50% {
+        transform:translateY(5px) scale(1.0, 1);
+    }
+    100% {
+        transform:translateY(0) scale(1.0, 1);
+    }
+}
+
+.navigation a+a {
+    margin-left:30px;
+}
+
+/* Creates a responsive wrapper that makes our content scale nicely */
+.inner {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Centres vertically yo. (IE8+) */
+.vertical {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* Add a little circle in the middle of the border-bottom on our .post
+just for the lolz and stylepoints. */
+.post:after {
+    display: block;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border: #E7EEF2 1px solid;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    box-shadow: #fff 0 0 0 5px;
+}
+
+
+/* Every post, on every page, gets this style on its <article> tag */
+.post {
+    position: relative;
+    width:80%;
+    max-width: 700px;
+    margin: 4rem auto;
+    padding-bottom: 4rem;
+    border-bottom: #EBF2F6 1px solid;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* ==========================================================================
+4. General - The main styles for the the theme
+========================================================================== */
+
+/* Big cover image on the home page */
+.site-head {
+    position: relative;
+    display: table;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background: #5C992E;
+}
+
+.navigation .twitter-nav, .navigation .twitter-nav:hover {
+    text-decoration: none;
+    font-family: sans-serif;
+    color:#59361F;
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+
+.my-face {
+    vertical-align: middle;
+    background: #DFDF38 url(./my-face-200x200.png) -7px 2px no-repeat;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #fff;
+    position: relative;
+    top:5px;
+    display: inline-block;
+    border-radius: 100%;
+    background-size: 110%;
+    box-shadow: 0 0 3px #576657, inset 0 0 10px #98A125;
+    transition: background-color 0.3s ease;
+}
+.title-wrap a:hover .my-face {
+    background-color:#FAFA80;
+}
+.title-wrap a:active .my-face {
+    background-color:#FF5933;
+}
+
+.blog-logo {
+    text-decoration: none;
+}
+
+/* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
+.blog-logo img {
+    display: block;
+    max-height: 100px;
+    width: auto;
+    margin: 0 auto;
+    line-height: 0;
+}
+
+.ray-icon {
+    height: 60px;
+    width: 110px;
+    vertical-align: middle;
+    display: inline-block;
+    background: url(./ray-icon.png) 0 0 no-repeat;
+    background-size: cover;
+    margin: 4px 0 0;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* The details of your blog. Defined in ghost/settings/ */
+.blog-title {
+    margin:0 30px 0 0;
+    text-shadow:0 0 3px #728B72;
+    display:inline-block;
+    font-size: 5rem;
+    vertical-align: middle;
+    color:#f3f2ff;
+    line-height:100px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.blog-description {
+    margin: 0;
+    font-size: 1.8rem;
+    line-height: 1.5em;
+    font-weight: 300;
+    font-family: 'Noto Serif', serif;
+    letter-spacing: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.site-footer {
+    position: relative;
+    margin: 8rem 0 0 0;
+    padding: 4rem 0;
+    border-top: #EBF2F6 1px solid;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.7em;
+    color: #BBC7CC;
+    text-align: center;
+    background: #F7FAFB;
+}
+
+.site-footer a {
+    color: #BBC7CC;
+    text-decoration: underline;
+}
+
+.site-footer a:hover {
+    color: #50585D;
+}
+
+.poweredby .icon-ghost {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.poweredby .icon-ghost:hover {
+    text-decoration: none;
+}
+
+.poweredby .icon-ghost:before {
+    font-size: 1rem;
+    margin-right: 0.2em;
+}
+
+/* The subscribe icon on the footer */
+.subscribe {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    margin-left: -15px;
+    border: #EBF2F6 1px solid;
+    text-align: center;
+    line-height: 2.4rem;
+    border-radius: 50px;
+    background: #fff;
+    transition: box-shadow 0.5s;
+}
+
+/* The RSS icon, inserted via icon font */
+.subscribe:before {
+    color: #D2DEE3;
+    font-size: 10px;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    font-weight: bold;
+    transition: color 0.5s ease;
+}
+
+/* Add a box shadow to on hover */
+.subscribe:hover {
+    box-shadow: rgba(0,0,0,0.05) 0 0 0 3px;
+    transition: box-shadow 0.25s;
+}
+
+.subscribe:hover:before {
+    color: #50585D;
+}
+
+/* CSS tooltip saying "Subscribe!" - initially hidden */
+.tooltip {
+    opacity:0;
+    display: inline-block;
+    padding: 4px 8px 5px 8px;
+    position:absolute;
+    top: -23px;
+    left: -21px;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.1rem;
+    line-height: 1em;
+    text-align: center;
+    background: #50585D;
+    border-radius:20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+/* The little chiclet arrow under the tooltip, pointing down */
+.tooltip:after {
+    content:"";
+    border-width:5px 5px 0 5px;
+    border-style:solid;
+    border-color: #50585D transparent;
+    display:block;
+    position:absolute;
+    bottom:-4px;
+    left:50%;
+    margin-left:-5px;
+    z-index: 220;
+    width:0;
+}
+
+/* On hover, show the tooltip! */
+.subscribe:hover .tooltip {
+    opacity: 1;
+    top: -33px;
+}
+
+
+/* ==========================================================================
+10. Media Queries - Smaller than 900px
+========================================================================== */
+
+@media only screen and (max-width: 900px) {
+
+    .navigation {
+        height:auto;
+    }
+    .my-face {
+        background-position:-4px 2px;
+        top:0;
+        width:50px;
+        height:50px;
+    }
+    .ray-icon {
+        height: 44px;
+        width: 80px;
+    }
+
+    blockquote {
+        margin-left: 0;
+    }
+
+    .site-head {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        height: auto;
+    }
+
+    .blog-title {
+        font-size: 4rem;
+        letter-spacing: -1px;
+        margin-right:10px;
+    }
+
+    .blog-description {
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+
+    .post {
+        font-size: 0.9em;
+        line-height: 1.6em;
+    }
+
+    .post-template .post {
+        padding-bottom: 1rem;
+    }
+
+    .post-template .post-header {
+        padding: 40px 0;
+    }
+
+    h1 {
+        font-size: 4.8rem;
+        text-indent: -2px;
+    }
+
+    h2 {
+        font-size: 3.8rem;
+    }
+
+    h3 {
+        font-size: 3.3rem;
+    }
+
+    h4 {
+        font-size: 2.8rem;
+    }
+
+}
+
+/* ==========================================================================
+11. Media Queries - Smaller than 500px
+========================================================================== */
+
+
+@media only screen and (max-width: 500px) {
+
+    .site-head {
+        padding: 10% 0;
+    }
+
+    .blog-title {
+        font-size: 3rem;
+    }
+
+    .blog-description {
+        font-size: 1.5rem;
+    }
+
+
+    h1, h2 {
+        font-size: 3rem;
+        line-height: 1.1em;
+        letter-spacing: -1px;
+    }
+
+    h3 {
+        font-size: 2.8rem;
+    }
+
+    h4 {
+        font-size: 2.3rem;
+    }
+
+}

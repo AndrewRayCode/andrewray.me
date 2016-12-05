@@ -1,0 +1,13 @@
+.idea/
+node_modules/
+dist/
+build/
+*.iml
+webpack-assets.json
+webpack-stats.json
+npm-debug.log
+*.blend1
+.vscode
+.DS_Store
+bake-input.*
+bake-output.*
