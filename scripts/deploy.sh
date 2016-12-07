@@ -21,8 +21,8 @@ rm -r build
 webpack --display-error-details --config config/webpack.prod.js
 
 echo "${COLOR_LIGHT_CYAN}Uploading static assets to server...${COLOR_RESET}"
-scp build/index.html aray:/var/www/andrewray.me/
 aws s3 cp build/ s3://andrewray/ --recursive
+scp build/index.html aray:/var/www/andrewray.me/
 
 echo "${COLOR_GREEN}Complete!${COLOR_RESET}"
 
