@@ -612,7 +612,7 @@ margin on the iframe, cause it breaks stuff. */
 
 .face-icon {
     display: inline-block;
-    background: #DFDF38 url(/assets/my-face-200x200.png) -7px 2px no-repeat;
+    background: #DFDF38 url(./my-face-200x200.png) -7px 2px no-repeat;
     height: 100px;
     width:100px;;
     border: 3px solid #fff;
@@ -665,7 +665,7 @@ margin on the iframe, cause it breaks stuff. */
     width: 110px;
     vertical-align: middle;
     display: inline-block;
-    background: url(/assets/ray-icon.png) 0 0 no-repeat;
+    background: url(./ray-icon.png) 0 0 no-repeat;
     background-size: cover;
     margin: 4px 0 0;
     text-indent: 100%;
@@ -1093,7 +1093,7 @@ margin on the iframe, cause it breaks stuff. */
     overflow:auto;
     min-height:200px;
     max-height:444px;
-    background: transparent url(/assets/blog-footer.gif) 0 bottom no-repeat;
+    background: transparent url(./blog-footer.gif) 0 bottom no-repeat;
     position:relative;
     left:-130px;
 }
@@ -1137,7 +1137,7 @@ margin on the iframe, cause it breaks stuff. */
     position:absolute;
     top:-40px;
     left:0;
-    background: url(/assets/ray-right-semi.png) 0 0 no-repeat;
+    background: url(./ray-right-semi.png) 0 0 no-repeat;
     background-size:cover;
 }
 

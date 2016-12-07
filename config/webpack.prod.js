@@ -45,7 +45,7 @@ module.exports = {
         loaders: [
             { test: /\.jsx?$/, exclude: /node_modules|\.typeface\.js$/, loaders: ['babel?' + JSON.stringify(babelLoaderQuery)]},
             { test: /\.scss$/, exclude: /global\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap&sourceMap!sass?outputStyle=expanded&sourceMap' ) },
-            { test: /\.png$/, loader: 'url-loader?limit=1024' },
+            { test: /\.(png|gif|jpe?g)$/, loader: 'url-loader?limit=1024' },
             { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
