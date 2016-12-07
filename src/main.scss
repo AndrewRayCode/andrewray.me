@@ -99,30 +99,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 /* ==========================================================================
-   1. Icons - Sets up the icon font and respective classes
-   ========================================================================== */
-
-/* Each icon is created by inserting the corret character into the
-   content of the :before pseudo element. Like a boss. */
-.icon-ghost:before {
-    content: "\e000";
-}
-.icon-feed:before {
-    content: "\e001";
-}
-.icon-twitter:before {
-    content: "\e002";
-    font-size: 1.1em;
-}
-.icon-google-plus:before {
-    content: "\e003";
-}
-.icon-facebook:before {
-    content: "\e004";
-}
-
-
-/* ==========================================================================
    2. General - Setting up some base styles
    ========================================================================== */
 
