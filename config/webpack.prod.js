@@ -34,7 +34,7 @@ module.exports = {
     progress: true,
     entry: {
         'app-main': [
-            'font-awesome-webpack',
+            'font-awesome-webpack!./font-awesome.config.js',
             '../src/index.js'
         ]
     },
