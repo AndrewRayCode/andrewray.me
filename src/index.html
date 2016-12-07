@@ -11,7 +11,7 @@
             <div class="site-head-content inner">
                 <div class="title-wrap">
                     <a href="/">
-                        <h1 class="blog-title">Andrew <span class="ray-icon">Ray</span>'s Blog</h1>
+                        <h1 class="blog-title">Andrew <span class="ray-icon">Ray</span></h1>
                     </a>
                     <a href="https://twitter.com/andrewray" target="_blank" class="my-face">
                         <span class="face-icon"></span>
@@ -40,18 +40,136 @@
             </div>
         </div>
         <main class="post" role="main">
-            Follow:
-                <a href="http://blog.andrewray.me/"><h3 style="display:inline">Blog</h3></a> |
-                <a href="http://twitter.com/andrewray" target="_blank"></a> |
-                <a href="https://github.com/AndrewRayCode" target="_blank">Github</a>
-            <br /><br /><br />Some of my stuff:
-            <ul>
-                <li><a href="/bubbles" target="_blank">Old Bubbles</a> (Complete, Flash)</li>
-                <li><a href="/big-bubble" target="_blank">New Bubbles</a> (WIP, WebGL)</li>
-                <li><a href="/bash-prompt-builder/index.html">The Bash Prompt Builder</a> - Build a function to put in your .bashrc to show git / svn / hg information in your prompt</li>
-                <li><a href="/assets/games/escape_from_hueb/index.html">Escape From Hueb</a> - Audio only game</li>
-                <!--<li><a href="/assets/games/hippopotamatron/index.htm">The Hippopotamatron</a> - JavaScript class project</li>-->
-            </ul>
+
+            <section>
+                <h2 class="post-title">At a Glance</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="stats-list">
+                            <li>
+                                133 open source <a href="https://github.com/pulls?utf8=✓&q=is%3Apr+author%3AAndrewRayCode" target="_blank">pull requests</a>
+                            </li>
+                            <li>
+                                442 open source <a href="https://github.com/issues?utf8=✓&q=is%3Aissue+author%3AAndrewRayCode" target="_blank">issues filed</a>
+                            </li>
+                            <li>
+                                11 npm packages <a href="https://www.npmjs.com/~andrewray" target="_blank">published</a>
+                            </li>
+                            <li>
+                                8,610 reputation on  <a href="http://stackoverflow.com/users/743464/andy-ray" target="_blank">StackOverflow</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="stats-list">
+                            <li>
+                                Published <a href="https://www.sitepoint.com/building-a-game-reactjs-and-webgl/" target="_blank">SitePoint author</a>
+                            </li>
+                            <li>
+                                Virtual reality <a href="http://vrhackathon.com/sf-2014.html" target="_blank">hackathon winner</a> (team Mood Engine)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="post-title">Select Projects</h2>
+                <div class="row">
+                    <div class="col-md-4 project">
+                        <a href="http://shaderfrog.com/" target="_blank">
+                            <img
+                                src="<%= require('./screenshots/shaderfrog-screenshot.png') %>"
+                            />
+                            <div class="title">ShaderFrog</div>
+                            <p>
+                                WebGL graph based shader editor
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 project">
+                        <a href="http://charismachameleon.com/" target="_blank">
+                            <img
+                                src="<%= require('./screenshots/charisma-screenshot.jpg') %>"
+                            />
+                            <div class="title">Charisma The Chameleon</div>
+                            <p>
+                                A WebGL and React game
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 project">
+                        <a href="http://andrewraycode.github.io/easing-utils/gh-pages/" target="_blank">
+                            <img
+                                src="<%= require('./screenshots/easing-utils-screenshot.jpg') %>"
+                            />
+                            <div class="title">Easing Utils</div>
+                            <p>
+                                Up to date easing function library
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 project">
+                        <a href="https://github.com/AndrewRayCode/webpack-hot-2048-loader" target="_blank">
+                            <img
+                                src="https://raw.githubusercontent.com/DelvarWorld/webpack-hot-2048-loader/master/webpack-hot-2048-downsize.gif"
+                            />
+                            <div class="title">Webpack Hot 2018 Loader</div>
+                            <p>
+                                Shows the game 2048 during hot reloads
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 project">
+                        <a href="http://emoji.andrewray.me/" target="_blank">
+                            <img
+                                src="<%= require('./screenshots/emoji-screenshot.jpg') %>"
+                            />
+                            <div class="title">The Emoji Ransom Generator</div>
+                            <p>
+                                Write using only 📧Ⓜ️⭕️☔ℹ️!
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 project">
+                        <a href="http://cats.andrewray.me/" target="_blank">
+                            <img
+                                src="<%= require('./screenshots/cats-react.gif') %>"
+                            />
+                            <div class="title">The Booper Snooter</div>
+                            <p>
+                                Waste years of your life pulling cat tongues!
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 project">
+                        <a href="http://andrewray.me/bubbles" target="_blank">
+                            <img
+                                src="<%= require('./screenshots/bubbles-screenshot.jpg') %>"
+                            />
+                            <div class="title">Bubbles Revenge</div>
+                            <p>
+                                An addicting Flash game where you eat bubbles to grow
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-md-4 project">
+                        <a href="http://andrewray.me/assets/games/escape_from_hueb/index.html" target="_blank">
+                            <img
+                                src="<%= require('./screenshots/escape-heub-screenshot.jpg') %>"
+                            />
+                            <div class="title">Escape From Hueb</div>
+                            <p>
+                                An audio only Flash game experiment
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="site-footer">
