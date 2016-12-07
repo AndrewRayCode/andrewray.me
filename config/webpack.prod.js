@@ -33,7 +33,10 @@ module.exports = {
     context: __dirname,
     progress: true,
     entry: {
-        'app-main': '../src/index.js'
+        'app-main': [
+            'font-awesome-webpack',
+            '../src/index.js'
+        ]
     },
     output: {
         path: 'build',
