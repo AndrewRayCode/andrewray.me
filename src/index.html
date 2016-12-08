@@ -1,3 +1,44 @@
+<% var projects = [{
+    link: 'http://shaderfrog.com/',
+    src: require( './screenshots/shaderfrog-screenshot.png' ),
+    title: 'ShaderFrog',
+    description: 'WebGL graph based shader editor'
+}, {
+    link: 'http://charismachameleon.com/',
+    src: require( './screenshots/charisma-screenshot.jpg' ),
+    title: 'Charisma The Chameleon',
+    description: 'A WebGL and React game'
+}, {
+    link: 'http://andrewraycode.github.io/easing-utils/gh-pages/',
+    src: require( './screenshots/easing-utils-screenshot.jpg' ),
+    title: 'Easing Utils',
+    description: 'Up to date easing function library'
+}, {
+    link: 'https://github.com/AndrewRayCode/webpack-hot-2048-loader',
+    src: 'https://raw.githubusercontent.com/DelvarWorld/webpack-hot-2048-loader/master/webpack-hot-2048-downsize.gif',
+    title: 'Webpack Hot 2018 Loader',
+    description: 'Shows the game 2048 during hot reloads'
+}, {
+    link: 'http://emoji.andrewray.me/',
+    src: require( './screenshots/emoji-screenshot.jpg' ),
+    title: 'The Emoji Ransom Generator',
+    description: 'Write using only 📧Ⓜ️⭕️☔ℹ️!'
+}, {
+    link: 'http://cats.andrewray.me/',
+    src: require( './screenshots/cats-react.gif' ),
+    title: 'The Booper Snooter',
+    description: 'Waste years of your life pulling cat tongues!'
+}, {
+    link: 'http://andrewray.me/bubbles',
+    src: require( './screenshots/bubbles-screenshot.jpg' ),
+    title: 'Bubbles Revenge',
+    description: 'An addicting Flash game where you eat bubbles to grow'
+}, {
+    link: 'http://andrewray.me/assets/games/escape_from_hueb/index.html',
+    src: require( './screenshots/escape-heub-screenshot.jpg' ),
+    title: 'Escape From Hueb',
+    description: 'An audio only Flash game experiment'
+}] %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +52,7 @@
         <header class="site-head">
             <div class="site-head-content inner">
                 <div class="title-wrap">
-                    <a href="/">
+                    <a href="/" class="title-link">
                         <h1 class="blog-title">Andrew <span class="ray-icon">Ray</span></h1>
                     </a>
                     <a href="https://twitter.com/andrewray" target="_blank" class="my-face">
@@ -75,101 +116,24 @@
             </section>
 
             <section>
-                <h2 class="post-title">Select Projects</h2>
-                <div class="row">
-                    <div class="col-md-4 project">
-                        <a href="http://shaderfrog.com/" target="_blank">
-                            <img
-                                src="<%= require('./screenshots/shaderfrog-screenshot.png') %>"
-                            />
-                            <div class="title">ShaderFrog</div>
-                            <p>
-                                WebGL graph based shader editor
-                            </p>
-                        </a>
+                <h2 class="post-title">Selected Works</h2>
+                <% for( var row = 0; row < projects.length; row += 3 ) { %>
+                    <div class="row">
+                        <% for( var col = row; col < Math.min( row + 3, projects.length ); col += 1 ) { %>
+                            <div class="col-md-4 project">
+                                <a href="<%= projects[ col ].link %>" target="_blank">
+                                    <img
+                                        src="<%= projects[ col ].src %>"
+                                    />
+                                    <div class="title"><%= projects[ col ].title %></div>
+                                    <p>
+                                        <%= projects[ col ].description %>
+                                    </p>
+                                </a>
+                            </div>
+                        <% } %>
                     </div>
-                    <div class="col-md-4 project">
-                        <a href="http://charismachameleon.com/" target="_blank">
-                            <img
-                                src="<%= require('./screenshots/charisma-screenshot.jpg') %>"
-                            />
-                            <div class="title">Charisma The Chameleon</div>
-                            <p>
-                                A WebGL and React game
-                            </p>
-                        </a>
-                    </div>
-                    <div class="col-md-4 project">
-                        <a href="http://andrewraycode.github.io/easing-utils/gh-pages/" target="_blank">
-                            <img
-                                src="<%= require('./screenshots/easing-utils-screenshot.jpg') %>"
-                            />
-                            <div class="title">Easing Utils</div>
-                            <p>
-                                Up to date easing function library
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 project">
-                        <a href="https://github.com/AndrewRayCode/webpack-hot-2048-loader" target="_blank">
-                            <img
-                                src="https://raw.githubusercontent.com/DelvarWorld/webpack-hot-2048-loader/master/webpack-hot-2048-downsize.gif"
-                            />
-                            <div class="title">Webpack Hot 2018 Loader</div>
-                            <p>
-                                Shows the game 2048 during hot reloads
-                            </p>
-                        </a>
-                    </div>
-                    <div class="col-md-4 project">
-                        <a href="http://emoji.andrewray.me/" target="_blank">
-                            <img
-                                src="<%= require('./screenshots/emoji-screenshot.jpg') %>"
-                            />
-                            <div class="title">The Emoji Ransom Generator</div>
-                            <p>
-                                Write using only 📧Ⓜ️⭕️☔ℹ️!
-                            </p>
-                        </a>
-                    </div>
-                    <div class="col-md-4 project">
-                        <a href="http://cats.andrewray.me/" target="_blank">
-                            <img
-                                src="<%= require('./screenshots/cats-react.gif') %>"
-                            />
-                            <div class="title">The Booper Snooter</div>
-                            <p>
-                                Waste years of your life pulling cat tongues!
-                            </p>
-                        </a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 project">
-                        <a href="http://andrewray.me/bubbles" target="_blank">
-                            <img
-                                src="<%= require('./screenshots/bubbles-screenshot.jpg') %>"
-                            />
-                            <div class="title">Bubbles Revenge</div>
-                            <p>
-                                An addicting Flash game where you eat bubbles to grow
-                            </p>
-                        </a>
-                    </div>
-                    <div class="col-md-4 project">
-                        <a href="http://andrewray.me/assets/games/escape_from_hueb/index.html" target="_blank">
-                            <img
-                                src="<%= require('./screenshots/escape-heub-screenshot.jpg') %>"
-                            />
-                            <div class="title">Escape From Hueb</div>
-                            <p>
-                                An audio only Flash game experiment
-                            </p>
-                        </a>
-                    </div>
-                </div>
+                <% } %>
             </section>
         </main>
 
@@ -190,9 +154,7 @@
                 <div class="inner">
                     <div class="ray"></div>
                     <div class="copy">
-                        &copy; Andrew Ray 2017
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        Blog by <a href="https://ghost.org" target="_blank">Ghost</a>
+                        &copy; Andrew Ray <%= new Date().getFullYear() %>
                     </div>
                 </div>
             </div>

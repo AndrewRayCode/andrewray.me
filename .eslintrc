@@ -1,6 +1,7 @@
-{ "env": {
+{ "extends": "eslint-config-airbnb",
+  "env": {
     "browser": true,
-    "node": true,
+    "node": true
   },
   "rules": {
     "no-use-before-define": 1,
@@ -40,7 +41,11 @@
     "id-length": 0,
     "no-caller": 0,
     "eol-last": 0,
-    "no-undef": 0
+    "no-undef": 0,
+    "space-in-parens": 0,
+    "arrow-parens": 0,
+    "no-param-reassign": 0,
+    "computed-property-spacing" 0
   },
   "plugins": [
     "import"

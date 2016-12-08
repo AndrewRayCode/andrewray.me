@@ -649,6 +649,10 @@ margin on the iframe, cause it breaks stuff. */
     overflow: hidden;
 }
 
+.title-link {
+    position:relative;
+}
+
 /* The details of your blog. Defined in ghost/settings/ */
 .blog-title {
     margin:0 30px 0 0;
@@ -724,14 +728,18 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 section {
-    margin:0 0 25px;
-    padding:0 0 15px;
+    margin:0 0 35px;
+    padding:0 0 25px;
     border-bottom:1px solid #ddd;
+
+    &:last-child {
+        border-bottom: none;
+    }
 }
 
 .post-title {
     color: #59361F;
-    margin:0 0 18px;
+    margin:0 0 35px;
     font-size:28px;
 }
 
@@ -1484,4 +1492,10 @@ section {
         padding:0;
         font-size:14px;
     }
+}
+
+.render-wrap {
+    position:absolute;
+    top: -30px;
+    left: -80px;
 }
