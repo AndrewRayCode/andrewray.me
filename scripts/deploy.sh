@@ -17,7 +17,6 @@ echo "${COLOR_LIGHT_CYAN}Syncing to git remote...${COLOR_RESET}"
 git push origin master
 
 echo "${COLOR_LIGHT_CYAN}Building assets...${COLOR_RESET}"
-rm -r build
 webpack --display-error-details --config config/webpack.prod.js
 
 echo "${COLOR_LIGHT_CYAN}Uploading static assets to server...${COLOR_RESET}"
