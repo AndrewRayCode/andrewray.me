@@ -379,6 +379,13 @@ margin on the iframe, cause it breaks stuff. */
     text-decoration:none;
 }
 
+/* 3d */
+.render-wrap {
+    position:absolute;
+    top: -30px;
+    left: -80px;
+}
+
 .navigation {
     margin: 0 0 50px;
     text-align: center;
@@ -1312,6 +1319,10 @@ section {
         font-size: 2.8rem;
     }
 
+    .render-wrap {
+        left: -160px;
+    }
+
 }
 
 /* ==========================================================================
@@ -1458,6 +1469,10 @@ section {
         margin-left:150px;
     }
 
+    .render-wrap {
+        left: -117px;
+    }
+
 }
 
 .stats-list {
@@ -1492,10 +1507,5 @@ section {
         padding:0;
         font-size:14px;
     }
-}
 
-.render-wrap {
-    position:absolute;
-    top: -30px;
-    left: -80px;
 }
