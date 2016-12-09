@@ -565,7 +565,7 @@ margin on the iframe, cause it breaks stuff. */
     box-shadow:0 0 8px rgba( 0, 0, 0, 0.3 );
     border-radius:4px 4px 0 0;
     background:#a2c673;
-    background: linear-gradient(to bottom,  #e1edd2 0%,#c6dca8 49%,#bcd69a 50%,#a2c673 100%);
+    background: linear-gradient(to bottom,  #e1edd2 0%, #a2c673 100%);
 }
 
 .header-tabs .tab.active a {
