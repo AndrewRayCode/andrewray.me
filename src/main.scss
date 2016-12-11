@@ -1086,12 +1086,13 @@ section {
     background: #e5e573;
 }
 
-.site-footer .tentacle-thing {
-    overflow:auto;
-    min-height:200px;
-    max-height:444px;
+.site-footer .tentacle-thing:before {
+    content:'';
+    width:788px;
+    height:471px;
     background: transparent url(./blog-footer.gif) 0 bottom no-repeat;
-    position:relative;
+    position:absolute;
+    bottom:0;
     left:-130px;
 }
 
@@ -1242,10 +1243,6 @@ section {
 
     .site-footer .inner {
         width:800px;
-    }
-
-    .site-footer .info {
-        margin-left:160px;
     }
 
     .navigation {
@@ -1463,10 +1460,6 @@ section {
     .site-footer .inner {
         width:650px;
         margin:0;
-    }
-
-    .site-footer .info {
-        margin-left:150px;
     }
 
     .render-wrap {
