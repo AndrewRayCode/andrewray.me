@@ -211,7 +211,7 @@ Promise.all([
     const mainLight = new PointLight( 0xffffff, 0.08, 30, 1 );
     mainLight.position.set( 0, 15, 0 );
     scene.add( mainLight );
-    scene.add( new AmbientLight( 0x666666 ) );
+    scene.add( new AmbientLight( 0x777777 ) );
 
     const strands = [];
 
@@ -346,13 +346,15 @@ Promise.all([
             shininess: 100,
             specular: 0xffffff,
             color: 0xFFFFFF,
+            emissive: 0x333333
         }),
         new MeshPhongMaterial({
             aoMap,
             aoMapIntensity,
             shininess: 100,
             specular: 0xffffff,
-            color: 0x5C992E
+            color: 0x5C992E,
+            emissive: new Color( 0x5C992E ).multiplyScalar( 0.2 )
         }),
     ]);
 
@@ -362,14 +364,16 @@ Promise.all([
             aoMapIntensity,
             shininess: 100,
             specular: 0xffffff,
-            color: 0xFF5933
+            color: 0xFF5933,
+            emissive: new Color( 0xFF5933 ).multiplyScalar( 0.2 )
         }),
         new MeshPhongMaterial({
             aoMap,
             aoMapIntensity,
             shininess: 100,
             specular: 0xffffff,
-            color: 0xFFFFFF
+            color: 0xFFFFFF,
+            emissive: 0x333333
         }),
     ]);
 
