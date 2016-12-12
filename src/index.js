@@ -54,7 +54,7 @@ const lightColorsOn = [
     new Color( 0, 1, 0 ),
     new Color( 0, 0, 1 ),
     new Color( 0.3, 0.1, 0.5 ),
-    new Color( 1, 0.6, 0 ),
+    //new Color( 1, 0.6, 0 ),
 ];
 const lightColorsOff = lightColorsOn.map(
     c => c.clone().multiplyScalar( 0.1 )
@@ -211,7 +211,7 @@ Promise.all([
     const mainLight = new PointLight( 0xffffff, 0.08, 30, 1 );
     mainLight.position.set( 0, 15, 0 );
     scene.add( mainLight );
-    scene.add( new AmbientLight( 0x888888 ) );
+    scene.add( new AmbientLight( 0x666666 ) );
 
     const strands = [];
 
@@ -323,7 +323,7 @@ Promise.all([
 
         const pointLights = new Array( maxLightsPerStrand ).fill( 0 ).map( () => {
             // ( color, intensity, distance, decay )
-            const pointLight = new PointLight( 0xffffff, 2.0, 1.3, 1 );
+            const pointLight = new PointLight( 0xffffff, 1.7, 1.2, 1 );
             scene.add( pointLight );
 
             return pointLight;
