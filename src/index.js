@@ -2,7 +2,7 @@ import {
     MeshPhongMaterial, AmbientLight, Mesh, MultiMaterial, ObjectLoader,
     PerspectiveCamera, Scene, SphereGeometry, Vector3, WebGLRenderer,
     PointLight, PointLightHelper, FaceNormalsHelper, TextureLoader,
-    Geometry, Color, Object3D, Euler, CylinderGeometry, Math as ThreeMath
+    Geometry, Color, Object3D, Euler, CylinderGeometry, Math as ThreeMath,
 } from 'three';
 import {
     easeOutCirc, easeOutExpo, easeOutSine, easeOutBack,
@@ -29,12 +29,17 @@ const spinTime = 1000;
 
 let spinning = false;
 
-const STRAND_TWEEN_IN_TIME_MS = 2000;
-const STRAND_VISIBLE_TIME = 3000;
+const maxLightsPerStrand = 3;
+const bulbOpacity = 0.9;
+
+const STRAND_TWEEN_IN_TIME_MS = 3000;
+const STRAND_VISIBLE_TIME = 12000;
 const STRAND_FADE_OUT_TIME = 1000;
+const STRAND_INVISBILE_TIME = 3000;
 const TOTAL_STRAND_VISIBLE_TIME = (
-    STRAND_TWEEN_IN_TIME_MS + STRAND_VISIBLE_TIME + STRAND_FADE_OUT_TIME
+    STRAND_TWEEN_IN_TIME_MS + STRAND_VISIBLE_TIME + STRAND_FADE_OUT_TIME + STRAND_INVISBILE_TIME
 );
+const BULB_CYCLES_PER_CYCLE = 5;
 
 function randInt( min, max ) {
     return Math.floor( Math.random() * ( ( max - min ) + 1 ) ) + min;
@@ -44,11 +49,16 @@ function randFloat( min, max ) {
     return ( Math.random() * ( max - min ) ) + min;
 }
 
-const lightColors = [
-    new Color( 255, 0, 0 ),
-    new Color( 0, 255, 0 ),
-    new Color( 0, 0, 255 ),
+const lightColorsOn = [
+    new Color( 1, 0, 0 ),
+    new Color( 0, 1, 0 ),
+    new Color( 0, 0, 1 ),
+    new Color( 0.3, 0.1, 0.5 ),
+    new Color( 1, 0.6, 0 ),
 ];
+const lightColorsOff = lightColorsOn.map(
+    c => c.clone().multiplyScalar( 0.1 )
+);
 
 Promise.all([
     new Promise( ( resolve, reject ) =>
@@ -82,19 +92,19 @@ Promise.all([
             const spinPercent = ( Date.now() - spinTimeStart ) / spinTime;
             rotation.z = spinStart + ( easeOutSine( spinPercent ) * Math.PI * 2 );
 
-            if( elapsed >= 1 ) {
+            if( spinPercent >= 1 ) {
                 spinning = false;
                 rotation.z = spinStart;
             }
 
         }
 
-        lines.forEach( ( line, index ) => {
+        strands.forEach( ( line, index ) => {
 
-            const { bulbs, } = line;
+            const { bulbs, pointLights, } = line;
 
             const offsetTime = (
-                ms + ( ( index / lines.length ) * TOTAL_STRAND_VISIBLE_TIME )
+                ms + ( ( index / strands.length ) * TOTAL_STRAND_VISIBLE_TIME )
             ) % TOTAL_STRAND_VISIBLE_TIME;
 
             const percentAlong = offsetTime / TOTAL_STRAND_VISIBLE_TIME;
@@ -108,11 +118,15 @@ Promise.all([
                 0
             );
 
+            const bulbOnIndex = ( Math.floor(
+                ( offsetTime * BULB_CYCLES_PER_CYCLE ) / ( ( TOTAL_STRAND_VISIBLE_TIME / maxLightsPerStrand ) )
+            ) % maxLightsPerStrand );
+
             line.lineMesh.material.uniforms.visibility.value = percentFadedIn;
             line.lineMesh.material.uniforms.opacity.value = isFadingOut ? 1 - percentFadedOut : 1;
 
             bulbs.forEach( ( bulbData, bIndex ) => {
-                const { bulb, base, } = bulbData;
+                const { bulb, base, color, group, } = bulbData;
 
                 const percentVisible = ThreeMath.clamp(
                     ( percentFadedIn - ( bIndex / bulbs.length ) ) * 4,
@@ -120,21 +134,36 @@ Promise.all([
                 );
 
                 if( percentVisible <= 1 ) {
-                    bulbData.group.scale.copy(
+                    group.scale.copy(
                         new Vector3( 1, 1, 1 ).multiplyScalar( easeOutBack( percentVisible, 5 ) )
                     );
                 }
 
-                base.material.opacity = isFadingOut ? 1 - percentFadedOut : percentVisible;
-                bulb.material.opacity = isFadingOut ? 1 - percentFadedOut : percentVisible;
+                const correctedOpacity = ( isFadingOut ? 1 - percentFadedOut : percentVisible );
+
+                base.material.opacity = correctedOpacity * bulbOpacity;
+                bulb.material.opacity = correctedOpacity * bulbOpacity;
+
+                const isOn = !( ( ( bIndex - bulbOnIndex ) + 1 ) % maxLightsPerStrand );
+
+                if( isOn ) {
+                    const lightIndex = Math.floor( bIndex / maxLightsPerStrand );
+                    pointLights[ lightIndex ].color.copy( lightColorsOn[ color ] ).multiplyScalar( correctedOpacity );
+                    pointLights[ lightIndex ].position.copy( group.position );
+                }
+
+                bulb.material.emissive.copy(
+                    isOn ?
+                        lightColorsOn[ color ] :
+                        lightColorsOff[ color ]
+                );
+                bulb.material.color.copy(
+                    isOn ?
+                        lightColorsOn[ color ] :
+                        lightColorsOff[ color ]
+                );
 
             });
-
-            //bulbs.push({
-                //on: false,
-                //color,
-                //group: bulbGroup,
-            //});
 
         });
 
@@ -179,15 +208,14 @@ Promise.all([
     scene.add( camera );
 
     // ( color, intensity, distance, decay )
-    const light = new PointLight( 0xffffff, 1, 100, 1 );
-    light.position.set( 0, 10, 0 );
-    scene.add( light );
+    const mainLight = new PointLight( 0xffffff, 0.08, 30, 1 );
+    mainLight.position.set( 0, 15, 0 );
+    scene.add( mainLight );
+    scene.add( new AmbientLight( 0x888888 ) );
 
-    scene.add( new AmbientLight( 0xDDDDDD ) );
+    const strands = [];
 
-    const lines = [];
-
-    const totalLines = 1;
+    const totalStrands = 3;
     const taperStrength = 10;
     const bulbsPerStrand = 9;
     const yOffset = -1;
@@ -197,7 +225,7 @@ Promise.all([
     const baseRadius = 0.1;
     const baseTaper = 0.5;
 
-    for( let j = 0; j < totalLines; j += 1 ) {
+    for( let j = 0; j < totalStrands; j += 1 ) {
 
         const vertexGeometry = new Geometry();
 
@@ -205,8 +233,8 @@ Promise.all([
         const seed = randFloat( 0, 10 );
         const lineLength = randFloat( 4, 7 );
         const lineSteps = 100;
-        const radius = randFloat( 0.5, 0.8 );
-        const coils = randFloat( 1, 5 );
+        const radius = randFloat( 0.6, 0.8 );
+        const coils = randFloat( 1, 6 );
 
         const bulbs = [];
         const lights = [];
@@ -227,7 +255,7 @@ Promise.all([
         line.setGeometry( vertexGeometry, p => 1 - ( Math.abs( ( p * 2 ) - 1 ) ** taperStrength ) );
         const lineMaterial = new MeshLineMaterial({
             transparent: true,
-            lineWidth: 0.05,
+            lineWidth: 0.03,
             color: baseColor,
         });
         const lineMesh = new Mesh( line.geometry, lineMaterial );
@@ -237,7 +265,7 @@ Promise.all([
         for( let i = 0; i < bulbsPerStrand; i += 1 ) {
 
             const percentAlong = ( i / bulbsPerStrand ) + ( ( 1 / bulbsPerStrand ) * 0.5 );
-            const color = i % lightColors.length;
+            const color = i % lightColorsOn.length;
 
             const position = new Vector3(
                 ( -percentAlong * lineLength ) + ( lineLength / 2 ),
@@ -248,7 +276,8 @@ Promise.all([
             const bulbMaterial = new MeshPhongMaterial({
                 opacity: 0,
                 transparent: true,
-                color: lightColors[ color ],
+                color: lightColorsOn[ color ],
+                emissive: lightColorsOn[ color ],
             });
             const bulbGeometry = new SphereGeometry( bulbRadius, 8, 8 );
             const bulbMesh = new Mesh( bulbGeometry, bulbMaterial );
@@ -292,8 +321,17 @@ Promise.all([
 
         }
 
-        lines.push({
+        const pointLights = new Array( maxLightsPerStrand ).fill( 0 ).map( () => {
+            // ( color, intensity, distance, decay )
+            const pointLight = new PointLight( 0xffffff, 2.0, 1.3, 1 );
+            scene.add( pointLight );
+
+            return pointLight;
+        });
+
+        strands.push({
             seed,
+            pointLights,
             lineMesh,
             lights,
             bulbs
@@ -355,11 +393,12 @@ Promise.all([
 
     obj.children[ 0 ].material = mainMaterial;
     obj.children[ 1 ].material = aMaterial;
-    const aLetter = obj.children[ 1 ];
 
     obj.position.y -= 1;
     obj.scale.multiplyScalar( 1.5 );
     scene.add( obj );
+
+    const aLetter = scene.children[ scene.children.length - 1 ].children[ 1 ];
 
     requestAnimationFrame( animate );
 
