@@ -38,7 +38,154 @@
     src: require( './screenshots/escape-heub-screenshot.jpg' ),
     title: 'Escape From Hueb',
     description: 'An audio only Flash game experiment'
-}] %>
+}];
+
+var categories = {
+    software: 'Software',
+    music: 'Music',
+};
+var categoryKeys = Object.keys( categories );
+
+var unselected = [{
+    type: 'software',
+    link: 'https://www.npmjs.com/package/emoji-alphabet',
+    title: 'Emoji Alphabet',
+    description: 'An Javascript library to translate individual letters into Emoji equivalents'
+}, {
+    type: 'software',
+    link: 'https://www.npmjs.com/package/webpack-cyclic-dependency-checker',
+    title: 'Webpack Cylic Dependency Checker',
+    description: 'Uses depth first traversal to search your dependency graph for cyclical dependencies, which can break tools like Flow.'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/configs',
+    title: 'My dotfiles',
+    description: 'All of my configuration files, including Vim plugins, and a 1,500 line .vimrc.'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/webpack-hot-2048-loader',
+    title: 'Kickscraper',
+    description: 'A tiny tool to scrap Kickstarter campaign data'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/Mood-Engine',
+    title: '3D Lamp Designer',
+    description: 'Virtual reality hackathon project. Design a lampshade by moving shadows around in a virtual reality environment.'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/vim-git-conflict-edit',
+    title: 'Vim Plugin: Git Confict Edit',
+    description: 'Edit conflicted Git files in Vim by grepping for conflict markers and loading into quickfix list'
+}, {
+    type: 'software',
+    link: 'http://andrewray.me/stuff/projection/',
+    title: '3D Projection Matrix in CSS',
+    description: 'Experiment to learn matrix math and 3D scene matrix math using (non-3D) CSS'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/ct-truncate',
+    title: 'Rich Text Truncate jQuery Plugin',
+    description: 'Truncate rich HTML text and add ellipses'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/cloudspawn',
+    title: 'Cloud Animation jQuery Plugin',
+    description: 'An experimental way to animate in a modal with puffy edges'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/BlurSwapper',
+    title: 'Blur Swapper jQuery plugin',
+    description: 'A jQuery plugin experiment to cycle between different text'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/kill-with-fire',
+    title: 'Kill With Fire jQuery Plugin',
+    description: 'A jQuery plugin to show the destruction of an element with sprite based explosions'
+}, {
+    type: 'software',
+    link: 'https://github.com/AndrewRayCode/Dung-Beetle',
+    title: 'Dung Beetle',
+    description: 'Many years ago, before the Chrome Inspector, even before Firebug Lite, I attempted to build a tool to give full cross browser inspection'
+}, {
+    type: 'software',
+    link: 'http://andrewray.me/stuff/snowglobe/',
+    title: 'WebGL Snowglobe',
+    description: 'A mini WebGL snowglobe experiment'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/Alcohol.mp3',
+    title: 'Alcohol Distances Sam From God',
+    description: 'Musical experiment inspired by a friend'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/DesertFightMusic.mp3',
+    title: 'Desert Fight Music',
+    description: '(Unfinished) Work for an uncompleted fighting video game'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/Echoes.mp3',
+    title: 'Echoes',
+    description: 'Piano improvisation for a friend'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/EricScoreSong1.mp3',
+    title: 'Eric Score Song 1',
+    description: 'Song for a dramatic student college film'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/EricScoreSong2.mp3',
+    title: 'Eric Score Song 2',
+    description: 'Song for a dramatic student college film'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/HelloWorld.mp3',
+    title: 'Hello World',
+    description: 'An exerpimental song to express a transition in my life'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/HerPrisonHas88Keys.mp3',
+    title: 'Her Prison Has 88 Keys And No Locks',
+    description: 'A piano improvisation for a friend'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/Impulse_Score.mp3',
+    title: 'Impulse Score',
+    description: '(Unfinished) An orchestral and electronic song for an incomplete video game'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/ObsessiveImpulsive.mp3',
+    title: 'Obsessive Impulsive',
+    description: 'An orchestral soundtrack mix for an incomplete video game.'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/MidnightOnAKentuckyPorch.mp3',
+    title: 'Midnight On A Kentucky Porch',
+    description: 'Experimental song about late night conversations'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/TheDepths.mp3',
+    title: 'The Depths',
+    description: 'A piano composition'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/TheIceWalrusWIP.mp3',
+    title: 'The Ice Walrus',
+    description: '(Unfinished) A classical composition about friendship'
+}, {
+    type: 'music',
+    link: 'http://andrewray.me/assets/music/Thisis.mp3',
+    title: 'Thisis',
+    description: 'An electronic and piano composition for a friend'
+}];
+
+var unselectedWorks = Object.keys( categories ).reduce( function( memo, category ) {
+    memo[ category ] = unselected.filter( function( w ) {
+        return w.type === category;
+    });
+    return memo;
+}, {} );
+
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -116,7 +263,7 @@
             </section>
 
             <section>
-                <h2 class="post-title">Selected Works</h2>
+                <h2 class="post-title">Select Works</h2>
                 <% for( var row = 0; row < projects.length; row += 3 ) { %>
                     <div class="row">
                         <% for( var col = row; col < Math.min( row + 3, projects.length ); col += 1 ) { %>
@@ -135,6 +282,29 @@
                     </div>
                 <% } %>
             </section>
+
+            <section>
+                <h2 class="post-title">Unselected Works</h2>
+
+                <% for( var i = 0; i < categoryKeys.length; i++ ) { %>
+                    <h4><%= categories[ categoryKeys[ i ] ] %></h4>
+
+                    <ul class="project-list">
+                    <% for( var j = 0; j < unselectedWorks[ categoryKeys[ i ] ].length; j ++ ) { %>
+                        <li>
+                            <a href="<%= unselectedWorks[ categoryKeys[ i ] ][ j ].link %>" target="_blank">
+                                <div class="title"><%= unselectedWorks[ categoryKeys[ i ] ][ j ].title %></div>
+                                <p>
+                                    <%= unselectedWorks[ categoryKeys[ i ] ][ j ].description %>
+                                </p>
+                            </a>
+                        </li>
+                    <% } %>
+                    </ul>
+                <% } %>
+            </section>
+
+
         </main>
 
         <footer class="site-footer">
